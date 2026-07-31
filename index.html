@@ -92,6 +92,8 @@ nav.scrolled{background:rgba(14,24,41,.93);backdrop-filter:blur(16px);box-shadow
 .btn.ghost:hover{border-color:var(--orange);color:var(--orange)!important;background:rgba(232,146,58,.07)}
 .btn.wa{background:#1fb355;color:#fff!important;box-shadow:0 8px 24px rgba(31,179,85,.3)}
 .btn.wa:hover{box-shadow:0 14px 34px rgba(31,179,85,.45)}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-cta{display:none}
 .hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;z-index:1200}
 .hamburger span{width:26px;height:2px;background:var(--cream);transition:.3s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -391,6 +393,8 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
   .nav-links{position:fixed;inset:0;background:rgba(14,24,41,.98);backdrop-filter:blur(16px);flex-direction:column;justify-content:center;gap:30px;transform:translateY(-102%);transition:transform .45s ease;z-index:1100}
   .nav-links.open{transform:translateY(0)}
   .nav-links a{font-size:17px}
+  .nav-links .btn{display:none}
+  .nav-cta{display:inline-flex;padding:14px 24px;font-size:13.5px;box-shadow:0 8px 22px rgba(232,146,58,.45)}
   .hamburger{display:flex}
   section{padding:64px 0}
   .sec-head{margin-bottom:40px}
@@ -458,14 +462,16 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
       <img src="logo.png" alt="Logo Bigoderia Santiago" onerror="this.style.display='none'">
       <span class="lt">Santiago<small>Bigoderia</small></span>
     </a>
+    <div class="nav-right">
+    <a class="btn nav-cta" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener"><svg class="ico"><use href="#i-cal"/></svg>Agende aqui</a>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
+    </div>
     <div class="nav-links" id="navLinks">
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
       <a href="#galeria">Galeria</a>
-      <a href="#locais">Unidades</a>
       <a class="btn" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener"><svg class="ico"><use href="#i-cal"/></svg>Agende aqui</a>
     </div>
   </div>
