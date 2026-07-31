@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bigoderia Santiago — Barbearia em Pouso Alegre | 1ª Barbearia com Assinatura do Sul de Minas</title>
+<meta name="description" content="Bigoderia Santiago: +8 anos de tradição em Pouso Alegre. A 1ª barbearia com assinatura do Sul de Minas. Agende seu horário online. Unidades Santa Rita e Centro.">
+<link rel="icon" type="image/png" href="logo.png">
+
+<!-- Open Graph (card ao compartilhar no WhatsApp/Instagram) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bigoderia Santiago — Barbearia em Pouso Alegre">
+<meta property="og:description" content="A 1ª barbearia com assinatura do Sul de Minas. +8 anos de tradição. Agende seu horário online.">
+<meta property="og:image" content="fachada-centro.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#0e1829">
+
+<!-- SEO: dados estruturados (Google) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Barbershop",
+  "name":"Bigoderia Santiago",
+  "image":"fachada-centro.jpg",
+  "telephone":"+55-35-99265-3329",
+  "priceRange":"R$45 - R$329,90",
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"3"},
+  "address":[
+    {"@type":"PostalAddress","streetAddress":"Av. Pref. Olavo Gomes de Oliveira, 2800 - Santa Rita 1","addressLocality":"Pouso Alegre","addressRegion":"MG","postalCode":"37558-700","addressCountry":"BR"},
+    {"@type":"PostalAddress","streetAddress":"Rua Adalberto Ferraz, 462 - Centro","addressLocality":"Pouso Alegre","addressRegion":"MG","addressCountry":"BR"}
+  ],
+  "openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"20:00"},
+  "sameAs":["https://instagram.com/bigoderia.santiago","https://www.facebook.com/barbeariasantiagopa/"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#152238;
+  --navy-2:#0e1829;
+  --navy-3:#1b2a44;
+  --navy-4:#223554;
+  --cream:#f3e6c8;
+  --cream-2:#faf5e8;
+  --orange:#e8923a;
+  --orange-2:#f2a94f;
+  --muted:#93a5c0;
+  --line:rgba(243,230,200,.1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--navy-2);color:var(--cream-2);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--orange);color:var(--navy-2)}
+h1,h2,h3,h4{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.03em}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{width:min(1180px,92%);margin:0 auto}
+.ico{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ---------- Preloader ---------- */
+#loader{position:fixed;inset:0;background:var(--navy-2);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;transition:opacity .7s ease,visibility .7s}
+#loader.hide{opacity:0;visibility:hidden}
+#loader img{width:110px;border-radius:50%;animation:breathe 1.6s ease infinite}
+#loader .bar{width:180px;height:2px;background:rgba(243,230,200,.15);border-radius:2px;overflow:hidden}
+#loader .bar i{display:block;height:100%;width:40%;background:var(--orange);border-radius:2px;animation:load 1.1s ease infinite}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes load{0%{transform:translateX(-100%)}100%{transform:translateX(450%)}}
+
+/* ---------- Nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .35s,box-shadow .35s,padding .35s;padding:18px 0}
+nav.scrolled{background:rgba(14,24,41,.93);backdrop-filter:blur(16px);box-shadow:0 8px 30px rgba(0,0,0,.4);padding:10px 0;border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{width:46px;height:46px;border-radius:50%;border:1px solid rgba(243,230,200,.25);transition:transform .4s}
+.logo:hover img{transform:rotate(-8deg) scale(1.08)}
+.logo .lt{font-family:'Oswald';font-weight:700;font-size:19px;letter-spacing:.1em;text-transform:uppercase;line-height:1.05}
+.logo .lt small{display:block;font-size:10px;letter-spacing:.42em;color:var(--orange);font-weight:500}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);position:relative;padding:4px 0}
+.nav-links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--orange);transition:width .3s}
+.nav-links a:not(.btn):hover::after{width:100%}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:var(--navy-2)!important;padding:14px 30px;border-radius:100px;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;transition:transform .25s,box-shadow .25s;box-shadow:0 8px 24px rgba(232,146,58,.3);position:relative;overflow:hidden}
+.btn::before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .55s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(232,146,58,.45)}
+.btn:hover::before{left:130%}
+.btn .ico{font-size:17px}
+.btn.ghost{background:transparent;color:var(--cream)!important;border:1.5px solid rgba(243,230,200,.35);box-shadow:none}
+.btn.ghost:hover{border-color:var(--orange);color:var(--orange)!important;background:rgba(232,146,58,.07)}
+.btn.wa{background:#1fb355;color:#fff!important;box-shadow:0 8px 24px rgba(31,179,85,.3)}
+.btn.wa:hover{box-shadow:0 14px 34px rgba(31,179,85,.45)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;z-index:1200}
+.hamburger span{width:26px;height:2px;background:var(--cream);transition:.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ---------- Hero ---------- */
+header{min-height:100vh;position:relative;display:flex;align-items:center;background:
+  radial-gradient(ellipse at 80% 15%,rgba(232,146,58,.1),transparent 50%),
+  radial-gradient(ellipse at 10% 90%,rgba(232,146,58,.06),transparent 45%),
+  linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 70%)}
+header::before{content:"";position:absolute;inset:0;background-image:
+  linear-gradient(rgba(243,230,200,.03) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(243,230,200,.03) 1px,transparent 1px);
+  background-size:60px 60px;mask-image:radial-gradient(ellipse at 60% 40%,black 25%,transparent 75%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;position:relative;z-index:2;padding:150px 0 100px}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--orange);margin-bottom:24px}
+.eyebrow::before{content:"";width:44px;height:1.5px;background:var(--orange)}
+.hero h1{font-size:clamp(42px,6.4vw,80px);line-height:1.04;font-weight:700;color:var(--cream-2)}
+.hero h1 .hl{color:var(--orange);position:relative;display:inline-block}
+.hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:11px;background:rgba(232,146,58,.18);z-index:-1;transform:skew(-8deg)}
+.hero p.lead{margin:26px 0 38px;font-size:16.5px;line-height:1.8;color:var(--muted);max-width:500px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.hero-badges{display:flex;gap:40px;margin-top:56px;flex-wrap:wrap}
+.hb b{font-family:'Oswald';font-size:32px;font-weight:600;color:var(--cream);display:block;line-height:1.1}
+.hb b em{color:var(--orange);font-style:normal}
+.hb span{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* hero visual — foto */
+.hero-visual{position:relative;perspective:1000px}
+.hero-card{border-radius:24px;overflow:hidden;position:relative;box-shadow:0 46px 100px rgba(0,0,0,.55);border:1px solid rgba(243,230,200,.14);transform-style:preserve-3d;transition:transform .3s ease}
+.hero-card img{width:100%;height:540px;object-fit:cover;object-position:center;transform:scale(1.02);transition:transform 6s ease}
+.hero-card:hover img{transform:scale(1.09)}
+.hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,transparent 40%,rgba(14,24,41,.75) 92%)}
+.hero-card .card-label{position:absolute;left:26px;bottom:22px;z-index:2}
+.hero-card .card-label b{font-family:'Oswald';font-size:17px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream-2);display:block}
+.hero-card .card-label span{font-size:12px;color:var(--muted);letter-spacing:.06em}
+.float-chip{position:absolute;background:rgba(14,24,41,.88);border:1px solid rgba(232,146,58,.35);backdrop-filter:blur(10px);padding:14px 20px;border-radius:16px;display:flex;align-items:center;gap:12px;box-shadow:0 16px 40px rgba(0,0,0,.45);animation:float 5.5s ease-in-out infinite;z-index:3}
+.float-chip .ci{width:38px;height:38px;border-radius:11px;background:rgba(232,146,58,.14);border:1px solid rgba(232,146,58,.35);display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:18px}
+.float-chip b{font-family:'Oswald';font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--cream-2);display:block;line-height:1.2}
+.float-chip span{font-size:11px;color:var(--muted)}
+.chip-1{top:34px;left:-34px;animation-delay:.5s}
+.chip-2{bottom:90px;right:-30px;animation-delay:1.6s}
+.hero-logo-seal{position:absolute;top:-34px;right:22px;width:92px;height:92px;border-radius:50%;border:2px solid rgba(232,146,58,.5);box-shadow:0 18px 44px rgba(0,0,0,.5);z-index:4;animation:float 6s ease-in-out infinite;background:var(--navy)}
+.hero-logo-seal img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;z-index:2}
+.scroll-hint::after{content:"";width:1px;height:42px;background:linear-gradient(var(--orange),transparent);animation:drop 1.8s ease infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- Marquee ---------- */
+.marquee{background:var(--orange);color:var(--navy-2);overflow:hidden;padding:15px 0;position:relative;z-index:3}
+.marquee-track{display:flex;white-space:nowrap;font-family:'Oswald';font-weight:600;font-size:15px;letter-spacing:.28em;text-transform:uppercase;animation:scrollx 30s linear infinite;width:max-content}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* ---------- Sections ---------- */
+section{padding:120px 0;position:relative}
+.sec-head{max-width:660px;margin-bottom:70px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head.center .eyebrow{justify-content:center}
+.sec-head.center .eyebrow::before{display:none}
+.sec-head.center .eyebrow::after{content:"";width:44px;height:1.5px;background:var(--orange);order:-1}
+.sec-head h2{font-size:clamp(32px,4.4vw,52px);line-height:1.1;color:var(--cream-2)}
+.sec-head h2 .hl{color:var(--orange)}
+.sec-head p{margin-top:20px;color:var(--muted);line-height:1.8;font-size:15.5px}
+
+/* Sobre */
+.sobre{background:var(--navy)}
+.sobre-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:80px;align-items:center}
+.sobre-visual{position:relative}
+.sobre-photo{border-radius:24px;overflow:hidden;border:1px solid rgba(243,230,200,.14);box-shadow:0 40px 90px rgba(0,0,0,.5);position:relative}
+.sobre-photo img{width:100%;height:560px;object-fit:cover;transition:transform 1.4s cubic-bezier(.22,.61,.36,1)}
+.sobre-photo:hover img{transform:scale(1.06)}
+.sobre-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(14,24,41,.55),transparent 45%)}
+.since{position:absolute;bottom:-26px;left:-22px;background:var(--orange);color:var(--navy-2);border-radius:18px;padding:20px 26px;box-shadow:0 20px 50px rgba(0,0,0,.45);display:flex;align-items:center;gap:16px;z-index:3}
+.since b{font-family:'Oswald';font-size:34px;font-weight:700;line-height:1}
+.since span{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.4}
+.feature-list{display:flex;flex-direction:column;gap:14px;margin-top:40px}
+.feature{display:flex;gap:20px;align-items:flex-start;padding:22px;border-radius:18px;border:1px solid transparent;transition:background .3s,border-color .3s,transform .3s}
+.feature:hover{background:rgba(232,146,58,.05);border-color:rgba(232,146,58,.22);transform:translateX(8px)}
+.feature .fi{flex:0 0 52px;height:52px;border-radius:15px;background:rgba(232,146,58,.1);border:1px solid rgba(232,146,58,.3);display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:23px;transition:transform .3s}
+.feature:hover .fi{transform:scale(1.1)}
+.feature h4{font-size:15.5px;letter-spacing:.08em;color:var(--cream);margin-bottom:6px}
+.feature p{color:var(--muted);font-size:14px;line-height:1.7}
+
+/* stats */
+.stats{background:var(--navy-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:76px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.stat b{font-family:'Oswald';font-weight:600;font-size:clamp(40px,4.6vw,58px);color:var(--orange);display:block;line-height:1}
+.stat span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:12px;display:block}
+
+/* Serviços */
+.servicos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.serv-card{background:var(--navy-3);border:1px solid var(--line);border-radius:20px;padding:40px 34px;position:relative;overflow:hidden;transition:transform .35s,border-color .35s,box-shadow .35s}
+.serv-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .45s ease}
+.serv-card:hover{transform:translateY(-10px);border-color:rgba(232,146,58,.4);box-shadow:0 28px 64px rgba(0,0,0,.45)}
+.serv-card:hover::before{transform:scaleX(1)}
+.serv-card .si{width:58px;height:58px;border-radius:16px;background:rgba(232,146,58,.1);border:1px solid rgba(232,146,58,.3);display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:26px;margin-bottom:26px;transition:transform .35s,background .35s}
+.serv-card:hover .si{transform:translateY(-4px) rotate(-5deg);background:rgba(232,146,58,.2)}
+.serv-card h3{font-size:18.5px;letter-spacing:.07em;color:var(--cream);margin-bottom:12px}
+.serv-card p{color:var(--muted);font-size:14px;line-height:1.75}
+
+/* Planos */
+.planos{background:linear-gradient(180deg,var(--navy) 0%,var(--navy-2) 100%)}
+.planos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));gap:22px;align-items:stretch}
+.plano{background:var(--navy-3);border:1px solid var(--line);border-radius:22px;padding:38px 26px;display:flex;flex-direction:column;position:relative;transition:transform .35s,border-color .35s,box-shadow .35s}
+.plano:hover{transform:translateY(-10px);border-color:rgba(232,146,58,.5);box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.plano.destaque{background:linear-gradient(170deg,var(--navy-4),var(--navy-3));border-color:var(--orange);box-shadow:0 20px 60px rgba(232,146,58,.14)}
+.plano .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:var(--navy-2);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:7px 18px;border-radius:100px;white-space:nowrap}
+.plano h3{font-size:16px;letter-spacing:.1em;color:var(--cream);margin-bottom:6px}
+.plano .preco{font-family:'Oswald';font-weight:600;font-size:42px;color:var(--orange);line-height:1;margin:16px 0 4px}
+.plano .preco small{font-size:17px;vertical-align:top;margin-right:3px;font-weight:500}
+.plano .per{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.plano ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:30px;flex:1}
+.plano li{font-size:13.5px;color:var(--cream-2);display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.plano li svg{color:var(--orange);font-size:15px;margin-top:2px}
+.plano .btn{justify-content:center;padding:12px 20px;font-size:12px}
+.planos-note{text-align:center;margin-top:36px;color:var(--muted);font-size:13px}
+
+/* Depoimentos */
+.depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.depo{background:var(--navy-3);border:1px solid var(--line);border-radius:20px;padding:38px 32px;transition:transform .35s,border-color .35s}
+.depo:hover{transform:translateY(-8px);border-color:rgba(232,146,58,.35)}
+.depo .stars{color:var(--orange);font-size:15px;letter-spacing:4px;margin-bottom:20px}
+.depo p{color:var(--cream-2);line-height:1.8;font-size:14.5px}
+.depo .who{margin-top:26px;display:flex;align-items:center;gap:14px;border-top:1px solid var(--line);padding-top:22px}
+.depo .av{width:42px;height:42px;border-radius:50%;background:rgba(232,146,58,.14);border:1px solid rgba(232,146,58,.4);display:flex;align-items:center;justify-content:center;font-family:'Oswald';font-weight:600;color:var(--orange)}
+.depo .who b{display:block;font-size:13.5px;color:var(--cream)}
+.depo .who span{font-size:12px;color:var(--muted)}
+
+/* Localizações */
+.locais{background:var(--navy)}
+.locais-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.local{background:var(--navy-3);border:1px solid var(--line);border-radius:24px;overflow:hidden;transition:transform .35s,border-color .35s,box-shadow .35s}
+.local:hover{transform:translateY(-8px);border-color:rgba(232,146,58,.45);box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.local .photo{height:300px;overflow:hidden;position:relative}
+.local .photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,.61,.36,1)}
+.local:hover .photo img{transform:scale(1.07)}
+.local .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(27,42,68,.9),transparent 55%)}
+.local .photo .unit{position:absolute;left:26px;bottom:20px;z-index:2;background:var(--orange);color:var(--navy-2);font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:7px 16px;border-radius:100px}
+.local-body{padding:34px}
+.local-body h3{font-size:23px;letter-spacing:.06em;color:var(--cream);margin-bottom:16px}
+.local-body p{color:var(--muted);font-size:14px;line-height:1.7;display:flex;gap:12px;align-items:flex-start;margin-bottom:10px}
+.local-body p svg{color:var(--orange);font-size:17px;margin-top:2px}
+.local-body .acts{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.local-body .btn{font-size:11.5px;padding:11px 22px}
+
+/* CTA final */
+.cta-final{background:
+  radial-gradient(ellipse at 50% 0%,rgba(232,146,58,.14),transparent 60%),var(--navy-2);text-align:center;overflow:hidden}
+.cta-final .seal{width:96px;height:96px;border-radius:50%;margin:0 auto 34px;border:2px solid rgba(232,146,58,.45);box-shadow:0 18px 50px rgba(0,0,0,.5);overflow:hidden;animation:float 6s ease-in-out infinite}
+.cta-final .seal img{width:100%;height:100%;object-fit:cover}
+.cta-final h2{font-size:clamp(36px,5.2vw,62px);color:var(--cream-2);line-height:1.08}
+.cta-final h2 .hl{color:var(--orange)}
+.cta-final p{color:var(--muted);margin:24px auto 44px;max-width:520px;line-height:1.8;font-size:15.5px}
+.cta-final .hero-ctas{justify-content:center}
+
+/* Footer */
+footer{background:var(--navy-2);border-top:1px solid var(--line);padding:70px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1.1fr;gap:48px;margin-bottom:48px}
+.foot-grid>div>p{color:var(--muted);font-size:14px;line-height:1.8;margin-top:18px;max-width:330px}
+footer h4{font-size:13px;letter-spacing:.22em;color:var(--orange);margin-bottom:20px}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+footer ul a,footer ul li{color:var(--muted);font-size:14px;display:flex;align-items:center;gap:11px;transition:color .25s,padding-left .25s}
+footer ul a:hover{color:var(--orange);padding-left:6px}
+footer ul svg{font-size:16px;color:var(--orange)}
+.foot-bottom{border-top:1px solid var(--line);padding-top:28px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:12.5px}
+
+/* WhatsApp float */
+.wa-float{position:fixed;bottom:26px;right:26px;z-index:1500;width:60px;height:60px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 34px rgba(37,211,102,.4);transition:transform .3s;animation:waPulse 2.6s ease infinite}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+@keyframes waPulse{0%,100%{box-shadow:0 12px 34px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.35)}50%{box-shadow:0 12px 34px rgba(37,211,102,.4),0 0 0 15px rgba(37,211,102,0)}}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+.reveal.left{transform:translateX(-50px)}
+.reveal.right{transform:translateX(50px)}
+.reveal.zoom{transform:scale(.92)}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}.d4{transition-delay:.48s}
+
+/* ---------- Barra de progresso do scroll ---------- */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--orange),var(--orange-2));z-index:2000;box-shadow:0 0 12px rgba(232,146,58,.6);transition:width .1s linear}
+
+/* ---------- Animação de clique nos quadros ---------- */
+@keyframes pressPop{
+  0%{transform:scale(1)}
+  35%{transform:scale(.94) rotate(-1deg)}
+  65%{transform:scale(1.04) rotate(.6deg)}
+  100%{transform:scale(1)}
+}
+.clicked{animation:pressPop .5s cubic-bezier(.34,1.56,.64,1)!important}
+
+/* ---------- Parallax (movimento tipo vídeo ao rolar) ---------- */
+.plx-img{will-change:transform}
+.plx-img img{transform:translateY(var(--plx,0)) scale(1.15)!important}
+.hero-inner-plx{will-change:transform,opacity}
+
+/* ---------- Fundos fotográficos ---------- */
+.bg-photo{position:relative;isolation:isolate}
+.bg-photo::before{content:"";position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;background-attachment:fixed}
+.bg-photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(14,24,41,.94) 0%,rgba(14,24,41,.88) 50%,rgba(14,24,41,.96) 100%)}
+/* Fundo animado tipo vídeo: slideshow com zoom e movimento (efeito Ken Burns) */
+header .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;mask-image:linear-gradient(180deg,black 60%,transparent)}
+.hero-bg .kb{position:absolute;inset:-6%;background-size:cover;background-position:center;opacity:0;animation:kbFade 24s infinite}
+.hero-bg .kb:nth-child(1){background-image:url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=75&w=1600&auto=format&fit=crop');animation-delay:0s}
+.hero-bg .kb:nth-child(2){background-image:url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=75&w=1600&auto=format&fit=crop');animation-delay:8s}
+.hero-bg .kb:nth-child(3){background-image:url('https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=75&w=1600&auto=format&fit=crop');animation-delay:16s}
+@keyframes kbFade{
+  0%{opacity:0;transform:scale(1) translate(0,0)}
+  6%{opacity:.16}
+  33%{opacity:.16}
+  42%{opacity:0;transform:scale(1.14) translate(-2%,1.5%)}
+  100%{opacity:0}
+}
+/* partículas flutuantes no hero */
+.hero-particles{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.hero-particles i{position:absolute;bottom:-10px;width:4px;height:4px;border-radius:50%;background:rgba(232,146,58,.5);animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(0);opacity:0}12%{opacity:.7}100%{transform:translateY(-105vh);opacity:0}}
+
+/* Abertura cinematográfica: título sobe linha por linha */
+.tl{display:block;overflow:hidden}
+.tl>span{display:block;transform:translateY(115%);transition:transform 1s cubic-bezier(.22,.61,.36,1)}
+body.intro .tl>span{transform:translateY(0)}
+.tl:nth-child(2)>span{transition-delay:.15s}
+body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s}
+@keyframes cardIn{0%{transform:scale(1.12);filter:brightness(2) blur(6px)}100%{transform:scale(1);filter:none}}
+
+/* ---------- Equipe ---------- */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.team-card{background:var(--navy-3);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .35s,border-color .35s,box-shadow .35s;cursor:pointer}
+.team-card:hover{transform:translateY(-10px);border-color:rgba(232,146,58,.45);box-shadow:0 28px 64px rgba(0,0,0,.5)}
+.team-card .tphoto{height:320px;overflow:hidden;position:relative}
+.team-card .tphoto img{width:100%;height:100%;object-fit:cover;filter:grayscale(45%);transition:filter .5s,transform 1s cubic-bezier(.22,.61,.36,1)}
+.team-card:hover .tphoto img{filter:grayscale(0);transform:scale(1.07)}
+.team-card .tphoto::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(27,42,68,.85),transparent 50%)}
+.team-body{padding:26px 28px;position:relative}
+.team-body h3{font-size:20px;letter-spacing:.08em;color:var(--cream)}
+.team-body span{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);display:block;margin-top:6px}
+.team-body p{color:var(--muted);font-size:13.5px;line-height:1.7;margin-top:12px}
+.planos.bg-photo::before{background-image:url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=75&w=1600&auto=format&fit=crop')}
+.cta-final.bg-photo::before{background-image:url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=75&w=1600&auto=format&fit=crop')}
+.cta-final.bg-photo::after{background:linear-gradient(180deg,rgba(14,24,41,.93),rgba(14,24,41,.9))}
+
+/* ---------- Galeria ---------- */
+.galeria-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gal-item{border-radius:18px;overflow:hidden;position:relative;border:1px solid var(--line);aspect-ratio:4/4.6;cursor:pointer}
+.gal-item.wide{grid-column:span 1}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.22,.61,.36,1),filter .5s}
+.gal-item:hover img{transform:scale(1.08)}
+.gal-item::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(14,24,41,.8),transparent 45%);opacity:.7;transition:opacity .4s}
+.gal-item:hover::after{opacity:1}
+.gal-item .cap{position:absolute;left:20px;bottom:16px;z-index:2;font-family:'Oswald';font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-2);opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s}
+.gal-item:hover .cap{opacity:1;transform:none}
+.gal-cta{text-align:center;margin-top:38px}
+
+/* ---------- Tabela de preços avulsos ---------- */
+.precos-wrap{max-width:760px;margin:0 auto}
+.preco-row{display:flex;align-items:baseline;gap:18px;padding:22px 10px;border-bottom:1px solid var(--line);transition:background .3s,padding-left .3s}
+.preco-row:hover{background:rgba(232,146,58,.04);padding-left:20px}
+.preco-row h4{font-size:16px;letter-spacing:.08em;color:var(--cream);white-space:nowrap}
+.preco-row .dots{flex:1;border-bottom:2px dotted rgba(243,230,200,.2);transform:translateY(-4px)}
+.preco-row .val{font-family:'Oswald';font-weight:600;font-size:22px;color:var(--orange);white-space:nowrap}
+.preco-row small{display:block;font-family:'Inter';font-size:12.5px;color:var(--muted);text-transform:none;letter-spacing:0;font-weight:400;margin-top:4px}
+
+/* ---------- FAQ ---------- */
+.faq-wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.faq{background:var(--navy-3);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .3s}
+.faq.open{border-color:rgba(232,146,58,.45)}
+.faq button{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 28px;color:var(--cream);font-family:'Oswald';font-size:16px;letter-spacing:.06em;text-transform:uppercase;text-align:left}
+.faq .chev{flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(232,146,58,.4);display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:16px;transition:transform .4s,background .3s}
+.faq.open .chev{transform:rotate(45deg);background:rgba(232,146,58,.12)}
+.faq .ans{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.22,.61,.36,1)}
+.faq .ans p{padding:0 28px 26px;color:var(--muted);font-size:14.5px;line-height:1.8}
+
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;padding-top:130px;gap:70px}
+  .chip-1{left:-6px}.chip-2{right:-6px}
+  .sobre-grid{grid-template-columns:1fr;gap:64px}
+  .servicos-grid,.depo-grid{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:46px}
+  .locais-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr;gap:36px}
+  .since{left:10px}
+}
+@media(max-width:640px){
+  .nav-links{position:fixed;inset:0;background:rgba(14,24,41,.98);backdrop-filter:blur(16px);flex-direction:column;justify-content:center;gap:30px;transform:translateY(-102%);transition:transform .45s ease;z-index:1100}
+  .nav-links.open{transform:translateY(0)}
+  .nav-links a{font-size:17px}
+  .hamburger{display:flex}
+  .servicos-grid,.depo-grid{grid-template-columns:1fr}
+  .galeria-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .bg-photo::before{background-attachment:scroll}
+  section{padding:84px 0}
+  .hero-card img{height:420px}
+  .sobre-photo img{height:420px}
+}
+</style>
+</head>
+<body>
+
+<!-- SVG icon library -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></symbol>
+  <symbol id="i-razor" viewBox="0 0 24 24"><path d="M4 20 14 10"/><path d="M13 5l6 6-3.5 3.5a2 2 0 0 1-2.8 0L9.5 11.3a2 2 0 0 1 0-2.8L13 5z"/><path d="M16 2l6 6"/></symbol>
+  <symbol id="i-combo" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M7 4h.01M7 8h.01M7 12h.01M7 16h.01M7 20h.01"/><path d="M17 4h.01M17 8h.01M17 12h.01M17 16h.01M17 20h.01"/><path d="M4 4h6M14 4h6"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.7 6.7 9.6a6.5 6.5 0 1 0 10.6 0L12 2.7z"/></symbol>
+  <symbol id="i-child" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="4.5"/><path d="M5 21c.6-4 3.4-6.5 7-6.5s6.4 2.5 7 6.5"/></symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-1.6 10H4.6L3 8z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M8 2.5V7M16 2.5V7M3.5 10.5h17"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.7 6.3.8-4.6 4.3 1.2 6.2L12 17l-5.6 3 1.2-6.2L3 9.5l6.3-.8L12 3z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-2.7L17 22l-1.5-8"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.7a12 12 0 0 0 5.8 5.8L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16 5.5 9.5A2 2 0 0 1 7.4 8h9.2a2 2 0 0 1 1.9 1.5L20 16"/><rect x="3" y="15.5" width="18" height="4.5" rx="1.5"/><circle cx="7.3" cy="20" r=".4"/><circle cx="16.7" cy="20" r=".4"/></symbol>
+</svg>
+
+<div id="progress"></div>
+
+<!-- Preloader -->
+<div id="loader">
+  <img src="logo.png" alt="Bigoderia Santiago">
+  <div class="bar"><i></i></div>
+</div>
+
+<!-- Nav -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <img src="logo.png" alt="Logo Bigoderia Santiago">
+      <span class="lt">Santiago<small>Bigoderia</small></span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#planos">Planos</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#locais">Unidades</a>
+      <a class="btn" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener"><svg class="ico"><use href="#i-cal"/></svg>Agende aqui</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header>
+  <div class="hero-bg"><div class="kb"></div><div class="kb"></div><div class="kb"></div></div>
+  <div class="hero-particles" id="particles"></div>
+  <div class="container hero-grid">
+    <div class="hero">
+      <span class="eyebrow reveal">Pouso Alegre · Sul de Minas</span>
+      <h1><span class="tl"><span>Mais que um corte.</span></span><span class="tl"><span>Uma <span class="hl">experiência</span> de respeito.</span></span></h1>
+      <p class="lead reveal d2">A primeira barbearia com assinatura do Sul de Minas. Há mais de 8 anos entregando confiança, estilo e pontualidade em Pouso Alegre — agora em duas unidades.</p>
+      <div class="hero-ctas reveal d3">
+        <a class="btn" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener"><svg class="ico"><use href="#i-cal"/></svg>Agende aqui</a>
+        <a class="btn ghost" href="#planos"><svg class="ico"><use href="#i-crown"/></svg>Planos ilimitados</a>
+      </div>
+      <div class="hero-badges reveal d4">
+        <div class="hb"><b>+<em class="count" data-target="8">0</em></b><span>Anos de tradição</span></div>
+        <div class="hb"><b>+<em class="count" data-target="100">0</em></b><span>Assinantes</span></div>
+        <div class="hb"><b><em class="count" data-target="2">0</em></b><span>Unidades</span></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal right d2">
+      <div class="hero-card" id="tiltCard">
+        <img src="fachada-centro.jpg" alt="Fachada da Bigoderia Santiago — Unidade Centro">
+        <div class="card-label">
+          <b>Unidade Centro</b>
+          <span>Rua Adalberto Ferraz, 462</span>
+        </div>
+      </div>
+      <div class="hero-logo-seal"><img src="logo.png" alt=""></div>
+      <div class="float-chip chip-1">
+        <div class="ci"><svg class="ico"><use href="#i-star"/></svg></div>
+        <div><b>5.0 no Google</b><span>Avaliação dos clientes</span></div>
+      </div>
+      <div class="float-chip chip-2">
+        <div class="ci"><svg class="ico"><use href="#i-award"/></svg></div>
+        <div><b>Pioneira</b><span>1ª assinatura do Sul de Minas</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">Role</div>
+</header>
+
+<!-- Marquee -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Corte&nbsp;&nbsp;·&nbsp;&nbsp;Barba&nbsp;&nbsp;·&nbsp;&nbsp;Assinatura ilimitada&nbsp;&nbsp;·&nbsp;&nbsp;Pouso Alegre&nbsp;&nbsp;·&nbsp;&nbsp;Mais de 8 anos de confiança&nbsp;&nbsp;·&nbsp;&nbsp;Agende pelo site&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+    <span>Corte&nbsp;&nbsp;·&nbsp;&nbsp;Barba&nbsp;&nbsp;·&nbsp;&nbsp;Assinatura ilimitada&nbsp;&nbsp;·&nbsp;&nbsp;Pouso Alegre&nbsp;&nbsp;·&nbsp;&nbsp;Mais de 8 anos de confiança&nbsp;&nbsp;·&nbsp;&nbsp;Agende pelo site&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<!-- Sobre -->
+<section class="sobre" id="sobre">
+  <div class="container sobre-grid">
+    <div class="sobre-visual reveal left">
+      <div class="sobre-photo">
+        <img src="fachada-santarita.jpg" alt="Fachada da Bigoderia Santiago — Unidade Santa Rita">
+      </div>
+      <div class="since">
+        <b>8+</b>
+        <span>Anos de<br>tradição</span>
+      </div>
+    </div>
+    <div class="reveal right">
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="eyebrow">Nossa história</span>
+        <h2>Tradição que virou <span class="hl">referência</span></h2>
+        <p>A Bigoderia Santiago nasceu com um propósito simples: elevar o padrão da barbearia em Pouso Alegre. Fomos pioneiros no modelo de assinatura no Sul de Minas — e hoje somos o ponto de encontro de quem leva o próprio estilo a sério.</p>
+      </div>
+      <div class="feature-list">
+        <div class="feature">
+          <div class="fi"><svg class="ico"><use href="#i-award"/></svg></div>
+          <div><h4>Pioneiros na assinatura</h4><p>A primeira barbearia com plano de assinatura do Sul de Minas. Corte ilimitado, preço fixo, zero dor de cabeça.</p></div>
+        </div>
+        <div class="feature">
+          <div class="fi"><svg class="ico"><use href="#i-clock"/></svg></div>
+          <div><h4>Respeito à sua agenda</h4><p>Horário marcado é horário cumprido. Agende online e chegue na hora certa — sem fila, sem espera.</p></div>
+        </div>
+        <div class="feature">
+          <div class="fi"><svg class="ico"><use href="#i-scissors"/></svg></div>
+          <div><h4>Profissionais de mão cheia</h4><p>Equipe experiente, ambiente agradável, estacionamento e preço justo. É o que dizem nossos clientes.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="container stats-grid">
+    <div class="stat reveal"><b>+<span class="count" data-target="8">0</span></b><span>Anos de mercado</span></div>
+    <div class="stat reveal d1"><b>+<span class="count" data-target="100">0</span></b><span>Assinantes ativos</span></div>
+    <div class="stat reveal d2"><b>+<span class="count" data-target="10000">0</span></b><span>Cortes realizados</span></div>
+    <div class="stat reveal d3"><b>5.0</b><span>Avaliação no Google</span></div>
+  </div>
+</div>
+
+<!-- Serviços -->
+<section id="servicos">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Nossos serviços</span>
+      <h2>Feito no <span class="hl">detalhe</span>, do jeito clássico</h2>
+      <p>Do corte na tesoura à toalha quente na barba — cada serviço executado com técnica e capricho.</p>
+    </div>
+    <div class="servicos-grid">
+      <div class="serv-card reveal"><div class="si"><svg class="ico"><use href="#i-scissors"/></svg></div><h3>Corte de cabelo</h3><p>Clássico, degradê, social ou moderno. Corte alinhado ao seu estilo e ao formato do seu rosto, finalizado no detalhe.</p></div>
+      <div class="serv-card reveal d1"><div class="si"><svg class="ico"><use href="#i-razor"/></svg></div><h3>Barba completa</h3><p>Modelagem, navalha, toalha quente e produtos premium. A barba tratada como manda a tradição da bigoderia.</p></div>
+      <div class="serv-card reveal d2"><div class="si"><svg class="ico"><use href="#i-combo"/></svg></div><h3>Cabelo + Barba</h3><p>O pacote completo para sair renovado. Corte e barba na mesma sessão, com vantagem no plano de assinatura.</p></div>
+      <div class="serv-card reveal"><div class="si"><svg class="ico"><use href="#i-drop"/></svg></div><h3>Tratamentos</h3><p>Hidratação, alinhamento e cuidados para cabelo e barba. Saúde e aparência andando juntas.</p></div>
+      <div class="serv-card reveal d1"><div class="si"><svg class="ico"><use href="#i-child"/></svg></div><h3>Corte infantil</h3><p>Paciência e capricho para os pequenos. Traga o futuro cliente da casa para conhecer a bigoderia.</p></div>
+      <div class="serv-card reveal d2"><div class="si"><svg class="ico"><use href="#i-crown"/></svg></div><h3>Dia do noivo & eventos</h3><p>Vai casar ou tem um evento importante? Preparação completa para você chegar impecável.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Galeria -->
+<section class="galeria" id="galeria" style="padding-top:0">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Nosso trabalho</span>
+      <h2>O resultado fala por <span class="hl">si</span></h2>
+      <p>Cada corte é uma assinatura. Confira de perto no nosso Instagram.</p>
+    </div>
+    <!-- TROCAR: substituir pelas fotos reais de cortes do cliente quando ele enviar -->
+    <div class="galeria-grid">
+      <div class="gal-item reveal"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=75&w=800&auto=format&fit=crop" alt="Corte degradê finalizado" loading="lazy" onerror="this.closest('.gal-item').style.display='none'"><span class="cap">Degradê na régua</span></div>
+      <div class="gal-item reveal d1"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=75&w=800&auto=format&fit=crop" alt="Barba feita na navalha" loading="lazy" onerror="this.closest('.gal-item').style.display='none'"><span class="cap">Barba na navalha</span></div>
+      <div class="gal-item reveal d2"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=75&w=800&auto=format&fit=crop" alt="Corte clássico na barbearia" loading="lazy" onerror="this.closest('.gal-item').style.display='none'"><span class="cap">Clássico atemporal</span></div>
+      <div class="gal-item reveal"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=75&w=800&auto=format&fit=crop" alt="Ambiente da barbearia" loading="lazy" onerror="this.closest('.gal-item').style.display='none'"><span class="cap">Nosso ambiente</span></div>
+      <div class="gal-item reveal d1"><img src="https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?q=75&w=800&auto=format&fit=crop" alt="Atendimento na cadeira" loading="lazy" onerror="this.closest('.gal-item').style.display='none'"><span class="cap">Atendimento premium</span></div>
+      <div class="gal-item reveal d2"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=75&w=800&auto=format&fit=crop" alt="Acabamento de barba" loading="lazy" onerror="this.closest('.gal-item').style.display='none'"><span class="cap">Acabamento fino</span></div>
+    </div>
+    <div class="gal-cta reveal">
+      <a class="btn ghost" href="https://instagram.com/bigoderia.santiago" target="_blank" rel="noopener"><svg class="ico"><use href="#i-ig"/></svg>Ver mais no Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- Planos -->
+<section class="planos bg-photo" id="planos">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Assinatura Santiago</span>
+      <h2>Estilo <span class="hl">ilimitado</span>, preço fixo</h2>
+      <p>Pague uma vez por mês e venha quantas vezes quiser. Fomos os primeiros do Sul de Minas — e seguimos referência.</p>
+    </div>
+    <div class="planos-grid">
+      <div class="plano reveal">
+        <h3>Plano One</h3>
+        <div class="preco"><small>R$</small>45,00</div>
+        <div class="per">por mês</div>
+        <ul>
+          <li><svg class="ico"><use href="#i-check"/></svg>1 corte por mês</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Agendamento online</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Válido nas 2 unidades</li>
+        </ul>
+        <a class="btn ghost" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener">Assinar</a>
+      </div>
+      <div class="plano reveal d1">
+        <h3>Plano Barba</h3>
+        <div class="preco"><small>R$</small>99,90</div>
+        <div class="per">por mês</div>
+        <ul>
+          <li><svg class="ico"><use href="#i-check"/></svg>Barba ilimitada</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Toalha quente e navalha</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Válido nas 2 unidades</li>
+        </ul>
+        <a class="btn ghost" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener">Assinar</a>
+      </div>
+      <div class="plano reveal d2">
+        <h3>Plano Cortes</h3>
+        <div class="preco"><small>R$</small>99,90</div>
+        <div class="per">por mês</div>
+        <ul>
+          <li><svg class="ico"><use href="#i-check"/></svg>Cortes ilimitados</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Finalização inclusa</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Válido nas 2 unidades</li>
+        </ul>
+        <a class="btn ghost" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener">Assinar</a>
+      </div>
+      <div class="plano destaque reveal d3">
+        <span class="tag">Mais popular</span>
+        <h3>Cabelo + Barba</h3>
+        <div class="preco"><small>R$</small>179,90</div>
+        <div class="per">por mês</div>
+        <ul>
+          <li><svg class="ico"><use href="#i-check"/></svg>Cortes e barba ilimitados</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Toalha quente e navalha</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Válido nas 2 unidades</li>
+        </ul>
+        <a class="btn" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener">Assinar</a>
+      </div>
+      <div class="plano reveal d4">
+        <span class="tag">Experiência VIP</span>
+        <h3>Plano VIP</h3>
+        <div class="preco"><small>R$</small>329,90</div>
+        <div class="per">por mês</div>
+        <ul>
+          <li><svg class="ico"><use href="#i-check"/></svg>Tudo ilimitado</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Atendimento preferencial</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Benefícios exclusivos</li>
+        </ul>
+        <a class="btn ghost" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener">Assinar</a>
+      </div>
+    </div>
+    <p class="planos-note">Todos os planos são ilimitados, exceto o Plano One. Consulte condições na unidade.</p>
+
+    <!-- Preços avulsos — CONFIRMAR valores com o cliente -->
+    <div class="precos-wrap" style="margin-top:90px">
+      <div class="sec-head center reveal" style="margin-bottom:44px">
+        <span class="eyebrow">Sem assinatura?</span>
+        <h2 style="font-size:clamp(26px,3.4vw,38px)">Serviços <span class="hl">avulsos</span></h2>
+      </div>
+      <div class="reveal">
+        <div class="preco-row"><h4>Corte de cabelo<small>Tesoura ou máquina, com finalização</small></h4><span class="dots"></span><span class="val">R$ 45</span></div>
+        <div class="preco-row"><h4>Barba completa<small>Navalha, toalha quente e produtos</small></h4><span class="dots"></span><span class="val">R$ 40</span></div>
+        <div class="preco-row"><h4>Corte + Barba<small>O combo completo</small></h4><span class="dots"></span><span class="val">R$ 75</span></div>
+        <div class="preco-row"><h4>Corte infantil<small>Até 12 anos</small></h4><span class="dots"></span><span class="val">R$ 40</span></div>
+        <div class="preco-row"><h4>Sobrancelha<small>Alinhamento na navalha</small></h4><span class="dots"></span><span class="val">R$ 15</span></div>
+      </div>
+      <p class="planos-note">Valores de referência. Confirme na unidade ou pelo WhatsApp.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Equipe -->
+<section id="equipe">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Nossa equipe</span>
+      <h2>Profissionais de <span class="hl">mão cheia</span></h2>
+      <p>Cada barbeiro da casa domina o ofício. Escolha o seu na hora de agendar.</p>
+    </div>
+    <!-- TROCAR: substituir fotos e nomes pelos barbeiros reais do cliente -->
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="tphoto"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=75&w=800&auto=format&fit=crop" alt="Barbeiro Rodrigo" loading="lazy" onerror="this.closest('.team-card').style.display='none'"></div>
+        <div class="team-body">
+          <h3>Rodrigo</h3>
+          <span>Barbeiro · Especialista em degradê</span>
+          <p>"Profissional de mão cheia", segundo os próprios clientes. Precisão na régua e atendimento nota 10.</p>
+        </div>
+      </div>
+      <div class="team-card reveal d1">
+        <div class="tphoto"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=75&w=800&auto=format&fit=crop" alt="Barbeiro da equipe Santiago" loading="lazy" onerror="this.closest('.team-card').style.display='none'"></div>
+        <div class="team-body">
+          <h3>Equipe Santiago</h3>
+          <span>Barbeiro · Barba e navalha</span>
+          <p>Especialista no ritual completo da barba: navalha, toalha quente e acabamento fino.</p>
+        </div>
+      </div>
+      <div class="team-card reveal d2">
+        <div class="tphoto"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=75&w=800&auto=format&fit=crop" alt="Barbeiro da equipe Santiago" loading="lazy" onerror="this.closest('.team-card').style.display='none'"></div>
+        <div class="team-body">
+          <h3>Equipe Santiago</h3>
+          <span>Barbeiro · Cortes clássicos e modernos</span>
+          <p>Do social ao freestyle. Técnica apurada para entregar exatamente o corte que você pediu.</p>
+        </div>
+      </div>
+    </div>
+    <div class="gal-cta reveal">
+      <a class="btn" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener"><svg class="ico"><use href="#i-cal"/></svg>Agendar com a equipe</a>
+    </div>
+  </div>
+</section>
+
+<!-- Depoimentos -->
+<section id="depoimentos" style="padding-top:0">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Quem conhece, recomenda</span>
+      <h2>Palavra de <span class="hl">cliente</span></h2>
+    </div>
+    <div class="depo-grid">
+      <div class="depo reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Ótimos profissionais, ambiente agradável, estacionamento e preço justo."</p>
+        <div class="who"><div class="av">G</div><div><b>Avaliação verificada</b><span>Google</span></div></div>
+      </div>
+      <div class="depo reveal d1">
+        <div class="stars">★★★★★</div>
+        <p>"O Rodrigo que me atende é um profissional de mão cheia."</p>
+        <div class="who"><div class="av">G</div><div><b>Avaliação verificada</b><span>Google</span></div></div>
+      </div>
+      <div class="depo reveal d2">
+        <div class="stars">★★★★★</div>
+        <p>"Ótimo atendimento, serviço de qualidade, respeito à agenda. Recomendo."</p>
+        <div class="who"><div class="av">G</div><div><b>Avaliação verificada</b><span>Google</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:0">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2>Perguntas & <span class="hl">respostas</span></h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq reveal">
+        <button>Como funciona o plano de assinatura?<span class="chev">+</span></button>
+        <div class="ans"><p>Você paga um valor fixo por mês e usa o serviço do seu plano quantas vezes quiser (exceto o Plano One, que dá direito a 1 corte mensal). É só agendar pelo site e aparecer — sem pagar nada a mais na cadeira.</p></div>
+      </div>
+      <div class="faq reveal d1">
+        <button>Posso usar a assinatura nas duas unidades?<span class="chev">+</span></button>
+        <div class="ans"><p>Sim. Sua assinatura vale tanto na unidade Santa Rita quanto na unidade Centro. Agende onde for mais prático no dia.</p></div>
+      </div>
+      <div class="faq reveal d2">
+        <button>Preciso agendar ou posso chegar sem hora marcada?<span class="chev">+</span></button>
+        <div class="ans"><p>Trabalhamos com hora marcada para garantir que você seja atendido no horário, sem fila. O agendamento é feito online em menos de um minuto pelo botão "Agende aqui".</p></div>
+      </div>
+      <div class="faq reveal d3">
+        <button>Atendem sem assinatura?<span class="chev">+</span></button>
+        <div class="ans"><p>Claro! Você pode fazer qualquer serviço avulso pagando o valor da tabela. A assinatura é só uma forma de economizar para quem corta com frequência.</p></div>
+      </div>
+      <div class="faq reveal d4">
+        <button>Qual o horário de funcionamento?<span class="chev">+</span></button>
+        <div class="ans"><p>Funcionamos de segunda a sábado, até as 20h. Consulte os horários disponíveis de cada barbeiro direto na página de agendamento.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Localizações -->
+<section class="locais" id="locais">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Onde estamos</span>
+      <h2>Duas unidades em <span class="hl">Pouso Alegre</span></h2>
+      <p>Escolha a mais perto de você. Assinantes podem usar as duas.</p>
+    </div>
+    <div class="locais-grid">
+      <div class="local reveal left">
+        <div class="photo">
+          <img src="fachada-santarita.jpg" alt="Bigoderia Santiago — Unidade Santa Rita">
+          <span class="unit">Unidade Santa Rita</span>
+        </div>
+        <div class="local-body">
+          <h3>Santa Rita</h3>
+          <p><svg class="ico"><use href="#i-pin"/></svg>Av. Pref. Olavo Gomes de Oliveira, 2800 — Santa Rita 1, Pouso Alegre/MG</p>
+          <p><svg class="ico"><use href="#i-clock"/></svg>Aberto até as 20h</p>
+          <p><svg class="ico"><use href="#i-car"/></svg>Estacionamento no local</p>
+          <div class="acts">
+            <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Av.+Pref.+Olavo+Gomes+de+Oliveira,+2800,+Santa+Rita+1,+Pouso+Alegre,+MG" target="_blank" rel="noopener">Como chegar<svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a class="btn" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener"><svg class="ico"><use href="#i-cal"/></svg>Agendar</a>
+          </div>
+        </div>
+      </div>
+      <div class="local reveal right">
+        <div class="photo">
+          <img src="fachada-centro.jpg" alt="Bigoderia Santiago — Unidade Centro">
+          <span class="unit">Unidade Centro</span>
+        </div>
+        <div class="local-body">
+          <h3>Centro</h3>
+          <p><svg class="ico"><use href="#i-pin"/></svg>Rua Adalberto Ferraz, 462 — Centro, Pouso Alegre/MG</p>
+          <p><svg class="ico"><use href="#i-clock"/></svg>Aberto até as 20h</p>
+          <p><svg class="ico"><use href="#i-pin"/></svg>No coração da cidade</p>
+          <div class="acts">
+            <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Rua+Adalberto+Ferraz,+462,+Centro,+Pouso+Alegre,+MG" target="_blank" rel="noopener">Como chegar<svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a class="btn" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener"><svg class="ico"><use href="#i-cal"/></svg>Agendar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA final -->
+<section class="cta-final bg-photo" id="contato">
+  <div class="container reveal zoom">
+    <div class="seal"><img src="logo.png" alt=""></div>
+    <h2>Bora dar um trato<br>nesse <span class="hl">visual?</span></h2>
+    <p>Agende online em menos de um minuto. Escolha o barbeiro, o horário e a unidade — a gente cuida do resto.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener"><svg class="ico"><use href="#i-cal"/></svg>Agende aqui</a>
+      <a class="btn wa" href="https://wa.me/5535992653329?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20Bigoderia%20Santiago." target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" style="width:18px;height:18px;fill:#fff"><path d="M16 .8C7.6.8.8 7.6.8 16c0 2.7.7 5.3 2 7.6L.8 31.2l7.8-2c2.2 1.2 4.7 1.9 7.4 1.9 8.4 0 15.2-6.8 15.2-15.1S24.4.8 16 .8zm0 27.6c-2.4 0-4.7-.7-6.7-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.3-2-2-4.4-2-6.9C3.2 9 8.9 3.2 16 3.2S28.8 9 28.8 16 23.1 28.4 16 28.4zm7-9.3c-.4-.2-2.3-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.3-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.3 0-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.8-.6-.7-.9-.7h-.7c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.3 2.8 4.3 6.8 6 4 1.7 4 1.1 4.7 1.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z"/></svg>
+        Fale pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="logo">
+          <img src="logo.png" alt="Logo Bigoderia Santiago">
+          <span class="lt">Santiago<small>Bigoderia</small></span>
+        </a>
+        <p>A primeira barbearia com assinatura do Sul de Minas. Mais de 8 anos entregando confiança, estilo e respeito à sua agenda em Pouso Alegre/MG.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#planos">Planos de assinatura</a></li>
+          <li><a href="#locais">Unidades</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Fale conosco</h4>
+        <ul>
+          <li><a href="https://wa.me/5535992653329" target="_blank" rel="noopener"><svg class="ico"><use href="#i-phone"/></svg>(35) 99265-3329</a></li>
+          <li><a href="https://instagram.com/bigoderia.santiago" target="_blank" rel="noopener"><svg class="ico"><use href="#i-ig"/></svg>@bigoderia.santiago</a></li>
+          <li><a href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener"><svg class="ico"><use href="#i-cal"/></svg>Agendamento online</a></li>
+          <li><svg class="ico"><use href="#i-clock"/></svg>Segunda a sábado · até as 20h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Bigoderia Santiago — Pouso Alegre/MG. Todos os direitos reservados.</span>
+      <span>Tradição, estilo e respeito.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a class="wa-float" href="https://wa.me/5535992653329?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20Bigoderia%20Santiago." target="_blank" rel="noopener" aria-label="Fale pelo WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 .8C7.6.8.8 7.6.8 16c0 2.7.7 5.3 2 7.6L.8 31.2l7.8-2c2.2 1.2 4.7 1.9 7.4 1.9 8.4 0 15.2-6.8 15.2-15.1S24.4.8 16 .8zm0 27.6c-2.4 0-4.7-.7-6.7-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.3-2-2-4.4-2-6.9C3.2 9 8.9 3.2 16 3.2S28.8 9 28.8 16 23.1 28.4 16 28.4zm7-9.3c-.4-.2-2.3-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.3-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.3 0-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.8-.6-.7-.9-.7h-.7c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.3 2.8 4.3 6.8 6 4 1.7 4 1.1 4.7 1.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z"/></svg>
+</a>
+
+<script>
+// Preloader + abertura cinematográfica
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('loader').classList.add('hide');
+    document.body.classList.add('intro');
+  },600);
+});
+
+// Partículas flutuantes no hero
+(function(){
+  const box=document.getElementById('particles');
+  if(!box)return;
+  for(let i=0;i<22;i++){
+    const p=document.createElement('i');
+    p.style.left=Math.random()*100+'%';
+    p.style.animationDuration=(9+Math.random()*14)+'s';
+    p.style.animationDelay=(Math.random()*14)+'s';
+    p.style.width=p.style.height=(2+Math.random()*4)+'px';
+    p.style.opacity=.25+Math.random()*.5;
+    box.appendChild(p);
+  }
+})();
+
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+// Mobile menu
+const ham=document.getElementById('hamburger'),links=document.getElementById('navLinks');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');links.classList.toggle('open')});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');links.classList.remove('open')}));
+
+// Reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}
+}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Counters
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const el=e.target,target=+el.dataset.target,dur=1700,t0=performance.now();
+  const fmt=n=>n>=1000?n.toLocaleString('pt-BR'):n;
+  (function tick(t){
+    const p=Math.min((t-t0)/dur,1),ease=1-Math.pow(1-p,3);
+    el.textContent=fmt(Math.round(target*ease));
+    if(p<1)requestAnimationFrame(tick);
+  })(t0);
+  cio.unobserve(el);
+}),{threshold:.6});
+document.querySelectorAll('.count').forEach(el=>cio.observe(el));
+
+// Animação de clique nos quadros
+document.querySelectorAll('.serv-card,.plano,.gal-item,.depo,.feature,.local,.stat,.team-card,.preco-row,.hb,.float-chip,.sobre-photo').forEach(el=>{
+  el.addEventListener('click',()=>{
+    el.classList.remove('clicked');void el.offsetWidth;el.classList.add('clicked');
+  });
+  el.addEventListener('animationend',()=>el.classList.remove('clicked'));
+});
+
+// Movimento contínuo ao rolar (parallax tipo vídeo)
+const plxEls=[...document.querySelectorAll('.gal-item,.sobre-photo,.local .photo')];
+plxEls.forEach(el=>el.classList.add('plx-img'));
+const heroContent=document.querySelector('.hero'),heroVisual=document.querySelector('.hero-visual'),heroBg=document.querySelector('.hero-bg'),progress=document.getElementById('progress');
+let ticking=false;
+function onScroll(){
+  if(ticking)return;ticking=true;
+  requestAnimationFrame(()=>{
+    const y=scrollY,vh=innerHeight;
+    // barra de progresso
+    progress.style.width=(y/(document.documentElement.scrollHeight-vh)*100)+'%';
+    // hero se move e some suavemente como abertura de vídeo
+    if(y<vh){
+      if(heroContent){heroContent.style.transform=`translateY(${y*.18}px)`;heroContent.style.opacity=1-y/vh*1.1}
+      if(heroVisual){heroVisual.style.transform=`translateY(${y*.08}px)`}
+      if(heroBg){heroBg.style.transform=`translateY(${y*.3}px) scale(1.05)`}
+    }
+    // imagens deslizam dentro das molduras
+    plxEls.forEach(el=>{
+      const r=el.getBoundingClientRect();
+      if(r.bottom<0||r.top>vh)return;
+      const p=(r.top+r.height/2-vh/2)/vh; // -0.5..0.5
+      el.style.setProperty('--plx',(p*-36)+'px');
+    });
+    ticking=false;
+  });
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// FAQ acordeão
+document.querySelectorAll('.faq').forEach(f=>{
+  const btn=f.querySelector('button'),ans=f.querySelector('.ans');
+  btn.addEventListener('click',()=>{
+    const open=f.classList.contains('open');
+    document.querySelectorAll('.faq.open').forEach(o=>{o.classList.remove('open');o.querySelector('.ans').style.maxHeight=null});
+    if(!open){f.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px'}
+  });
+});
+
+// Tilt suave na foto do hero (desktop)
+const tilt=document.getElementById('tiltCard');
+if(tilt&&matchMedia('(pointer:fine)').matches){
+  const wrap=tilt.parentElement;
+  wrap.addEventListener('mousemove',e=>{
+    const r=wrap.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    tilt.style.transform=`rotateY(${x*7}deg) rotateX(${-y*7}deg)`;
+  });
+  wrap.addEventListener('mouseleave',()=>tilt.style.transform='');
+}
+</script>
+</body>
+</html>
