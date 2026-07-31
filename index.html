@@ -380,6 +380,16 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
 .faq .ans p{padding:0 28px 26px;color:var(--muted);font-size:14.5px;line-height:1.8}
 
 @media(max-width:960px){
+  .nav-links{position:fixed;inset:0;background:rgba(14,24,41,.98);backdrop-filter:blur(16px);flex-direction:column;justify-content:center;gap:30px;transform:translateY(-102%);transition:transform .45s ease;z-index:1100}
+  .nav-links.open{transform:translateY(0)}
+  .nav-links a{font-size:17px}
+  .nav-links .btn{display:none}
+  .nav-cta{display:inline-flex;padding:13px 22px;font-size:13px}
+  .hamburger{display:flex}
+  nav{padding:14px 0}
+  nav.scrolled{padding:10px 0}
+  .logo img{width:40px;height:40px}
+  .logo .lt{font-size:16px}
   .hero-grid{grid-template-columns:1fr;padding-top:130px;gap:70px}
   .chip-1{left:-6px}.chip-2{right:-6px}
   .sobre-grid{grid-template-columns:1fr;gap:64px}
