@@ -127,6 +127,7 @@ header::before{content:"";position:absolute;inset:0;background-image:
 .hero-card:hover img{transform:scale(1.09)}
 .hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,transparent 40%,rgba(14,24,41,.75) 92%)}
 .hero-card .card-label{position:absolute;left:26px;bottom:22px;z-index:2}
+.hero-card .card-label::before{content:"";position:absolute;left:-2px;top:2px;bottom:2px;width:3px;background:var(--orange);border-radius:2px;transform:translateX(-14px)}
 .hero-card .card-label b{font-family:'Oswald';font-size:17px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream-2);display:block}
 .hero-card .card-label span{font-size:12px;color:var(--muted);letter-spacing:.06em}
 .float-chip{position:absolute;background:rgba(14,24,41,.88);border:1px solid rgba(232,146,58,.35);backdrop-filter:blur(10px);padding:14px 20px;border-radius:16px;display:flex;align-items:center;gap:12px;box-shadow:0 16px 40px rgba(0,0,0,.45);animation:float 5.5s ease-in-out infinite;z-index:3}
@@ -148,7 +149,9 @@ header::before{content:"";position:absolute;inset:0;background-image:
 @keyframes scrollx{to{transform:translateX(-50%)}}
 
 /* ---------- Sections ---------- */
-section{padding:120px 0;position:relative}
+section{padding:120px 0;position:relative;scroll-margin-top:64px}
+/* textura fina premium */
+body::after{content:"";position:fixed;inset:0;z-index:3000;pointer-events:none;opacity:.35;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
 .sec-head{max-width:660px;margin-bottom:70px}
 .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
 .sec-head.center .eyebrow{justify-content:center}
@@ -157,6 +160,7 @@ section{padding:120px 0;position:relative}
 .sec-head h2{font-size:clamp(32px,4.4vw,52px);line-height:1.1;color:var(--cream-2)}
 .sec-head h2 .hl{color:var(--orange)}
 .sec-head p{margin-top:20px;color:var(--muted);line-height:1.8;font-size:15.5px}
+.sec-head.center h2::after{content:"";display:block;width:56px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--orange),var(--orange-2));margin:22px auto 0}
 
 /* Sobre */
 .sobre{background:var(--navy)}
@@ -274,6 +278,11 @@ footer ul svg{font-size:16px;color:var(--orange)}
 .reveal.visible{opacity:1;transform:none}
 .d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}.d4{transition-delay:.48s}
 
+/* aviso de arrastar (só celular) */
+.swipe-hint{display:none;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;margin-top:14px}
+.swipe-hint svg{font-size:15px;color:var(--orange);animation:swipeX 1.6s ease infinite}
+@keyframes swipeX{0%,100%{transform:translateX(-6px)}50%{transform:translateX(6px)}}
+
 /* ---------- Barra de progresso do scroll ---------- */
 #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--orange),var(--orange-2));z-index:2000;box-shadow:0 0 12px rgba(232,146,58,.6);transition:width .1s linear}
 
@@ -383,12 +392,32 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
   .nav-links.open{transform:translateY(0)}
   .nav-links a{font-size:17px}
   .hamburger{display:flex}
-  .servicos-grid,.depo-grid{grid-template-columns:1fr}
-  .galeria-grid{grid-template-columns:1fr 1fr;gap:12px}
+  section{padding:64px 0}
+  .sec-head{margin-bottom:40px}
+  .hero-grid{padding:110px 0 56px;gap:44px}
+  .hero p.lead{font-size:15px;margin:20px 0 28px}
+  .hero-badges{gap:26px;margin-top:38px}
+  .hero-card img{height:340px}
+  .sobre-photo img{height:340px}
+  .hero-logo-seal{width:72px;height:72px;top:-24px}
+  /* sem palavras flutuando no celular */
+  .float-chip{display:none}
+  .scroll-hint{display:none}
+  .hero-particles{display:none}
   .bg-photo::before{background-attachment:scroll}
-  section{padding:84px 0}
-  .hero-card img{height:420px}
-  .sobre-photo img{height:420px}
+  .since{padding:14px 18px}.since b{font-size:26px}
+  /* carrosséis: arraste para o lado com o dedo */
+  .servicos-grid,.depo-grid,.galeria-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:4px 4px 18px;margin:0 -4%;padding-left:4%;padding-right:4%;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .servicos-grid::-webkit-scrollbar,.depo-grid::-webkit-scrollbar,.galeria-grid::-webkit-scrollbar{display:none}
+  .serv-card,.depo{flex:0 0 80%;scroll-snap-align:center}
+  .gal-item{flex:0 0 66%;scroll-snap-align:center}
+  .serv-card{padding:30px 26px}
+  .depo{padding:30px 26px}
+  /* no celular os cards já entram visíveis dentro do carrossel */
+  .servicos-grid .reveal,.depo-grid .reveal,.galeria-grid .reveal{opacity:1;transform:none;transition:none}
+  /* toque: efeito ao pressionar */
+  .serv-card:active,.depo:active,.gal-item:active,.local:active,.faq:active{transform:scale(.97)}
+  .swipe-hint{display:flex!important}
 }
 </style>
 </head>
@@ -418,7 +447,7 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
 
 <!-- Preloader -->
 <div id="loader">
-  <img src="logo.png" alt="Bigoderia Santiago">
+  <img src="logo.png" alt="Bigoderia Santiago" onerror="this.style.display='none'">
   <div class="bar"><i></i></div>
 </div>
 
@@ -426,7 +455,7 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
 <nav id="nav">
   <div class="container nav-inner">
     <a href="#" class="logo">
-      <img src="logo.png" alt="Logo Bigoderia Santiago">
+      <img src="logo.png" alt="Logo Bigoderia Santiago" onerror="this.style.display='none'">
       <span class="lt">Santiago<small>Bigoderia</small></span>
     </a>
     <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -436,8 +465,6 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
       <a href="#galeria">Galeria</a>
-      <a href="#planos">Planos</a>
-      <a href="#equipe">Equipe</a>
       <a href="#locais">Unidades</a>
       <a class="btn" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener"><svg class="ico"><use href="#i-cal"/></svg>Agende aqui</a>
     </div>
@@ -455,7 +482,7 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
       <p class="lead reveal d2">A primeira barbearia com assinatura do Sul de Minas. Há mais de 8 anos entregando confiança, estilo e pontualidade em Pouso Alegre — agora em duas unidades.</p>
       <div class="hero-ctas reveal d3">
         <a class="btn" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener"><svg class="ico"><use href="#i-cal"/></svg>Agende aqui</a>
-        <a class="btn ghost" href="#planos"><svg class="ico"><use href="#i-crown"/></svg>Planos ilimitados</a>
+        <a class="btn ghost" href="#servicos"><svg class="ico"><use href="#i-scissors"/></svg>Nossos serviços</a>
       </div>
       <div class="hero-badges reveal d4">
         <div class="hb"><b>+<em class="count" data-target="8">0</em></b><span>Anos de tradição</span></div>
@@ -465,13 +492,13 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
     </div>
     <div class="hero-visual reveal right d2">
       <div class="hero-card" id="tiltCard">
-        <img src="fachada-centro.jpg" alt="Fachada da Bigoderia Santiago — Unidade Centro">
+        <img src="fachada-centro.jpg" alt="Fachada da Bigoderia Santiago — Unidade Centro" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=75&w=1200&auto=format&fit=crop'">
         <div class="card-label">
           <b>Unidade Centro</b>
           <span>Rua Adalberto Ferraz, 462</span>
         </div>
       </div>
-      <div class="hero-logo-seal"><img src="logo.png" alt=""></div>
+      <div class="hero-logo-seal"><img src="logo.png" alt="" onerror="this.parentElement.style.display='none'"></div>
       <div class="float-chip chip-1">
         <div class="ci"><svg class="ico"><use href="#i-star"/></svg></div>
         <div><b>5.0 no Google</b><span>Avaliação dos clientes</span></div>
@@ -498,7 +525,7 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
   <div class="container sobre-grid">
     <div class="sobre-visual reveal left">
       <div class="sobre-photo">
-        <img src="fachada-santarita.jpg" alt="Fachada da Bigoderia Santiago — Unidade Santa Rita">
+        <img src="fachada-santarita.jpg" alt="Fachada da Bigoderia Santiago — Unidade Santa Rita" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=75&w=1200&auto=format&fit=crop'">
       </div>
       <div class="since">
         <b>8+</b>
@@ -555,6 +582,7 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
       <div class="serv-card reveal d1"><div class="si"><svg class="ico"><use href="#i-child"/></svg></div><h3>Corte infantil</h3><p>Paciência e capricho para os pequenos. Traga o futuro cliente da casa para conhecer a bigoderia.</p></div>
       <div class="serv-card reveal d2"><div class="si"><svg class="ico"><use href="#i-crown"/></svg></div><h3>Dia do noivo & eventos</h3><p>Vai casar ou tem um evento importante? Preparação completa para você chegar impecável.</p></div>
     </div>
+    <div class="swipe-hint"><svg class="ico"><use href="#i-arrow"/></svg>Arraste para o lado</div>
   </div>
 </section>
 
@@ -575,142 +603,15 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
       <div class="gal-item reveal d1"><img src="https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?q=75&w=800&auto=format&fit=crop" alt="Atendimento na cadeira" loading="lazy" onerror="this.closest('.gal-item').style.display='none'"><span class="cap">Atendimento premium</span></div>
       <div class="gal-item reveal d2"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=75&w=800&auto=format&fit=crop" alt="Acabamento de barba" loading="lazy" onerror="this.closest('.gal-item').style.display='none'"><span class="cap">Acabamento fino</span></div>
     </div>
+    <div class="swipe-hint"><svg class="ico"><use href="#i-arrow"/></svg>Arraste para o lado</div>
     <div class="gal-cta reveal">
       <a class="btn ghost" href="https://instagram.com/bigoderia.santiago" target="_blank" rel="noopener"><svg class="ico"><use href="#i-ig"/></svg>Ver mais no Instagram</a>
     </div>
   </div>
 </section>
 
-<!-- Planos -->
-<section class="planos bg-photo" id="planos">
-  <div class="container">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">Assinatura Santiago</span>
-      <h2>Estilo <span class="hl">ilimitado</span>, preço fixo</h2>
-      <p>Pague uma vez por mês e venha quantas vezes quiser. Fomos os primeiros do Sul de Minas — e seguimos referência.</p>
-    </div>
-    <div class="planos-grid">
-      <div class="plano reveal">
-        <h3>Plano One</h3>
-        <div class="preco"><small>R$</small>45,00</div>
-        <div class="per">por mês</div>
-        <ul>
-          <li><svg class="ico"><use href="#i-check"/></svg>1 corte por mês</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Agendamento online</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Válido nas 2 unidades</li>
-        </ul>
-        <a class="btn ghost" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener">Assinar</a>
-      </div>
-      <div class="plano reveal d1">
-        <h3>Plano Barba</h3>
-        <div class="preco"><small>R$</small>99,90</div>
-        <div class="per">por mês</div>
-        <ul>
-          <li><svg class="ico"><use href="#i-check"/></svg>Barba ilimitada</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Toalha quente e navalha</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Válido nas 2 unidades</li>
-        </ul>
-        <a class="btn ghost" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener">Assinar</a>
-      </div>
-      <div class="plano reveal d2">
-        <h3>Plano Cortes</h3>
-        <div class="preco"><small>R$</small>99,90</div>
-        <div class="per">por mês</div>
-        <ul>
-          <li><svg class="ico"><use href="#i-check"/></svg>Cortes ilimitados</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Finalização inclusa</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Válido nas 2 unidades</li>
-        </ul>
-        <a class="btn ghost" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener">Assinar</a>
-      </div>
-      <div class="plano destaque reveal d3">
-        <span class="tag">Mais popular</span>
-        <h3>Cabelo + Barba</h3>
-        <div class="preco"><small>R$</small>179,90</div>
-        <div class="per">por mês</div>
-        <ul>
-          <li><svg class="ico"><use href="#i-check"/></svg>Cortes e barba ilimitados</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Toalha quente e navalha</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Válido nas 2 unidades</li>
-        </ul>
-        <a class="btn" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener">Assinar</a>
-      </div>
-      <div class="plano reveal d4">
-        <span class="tag">Experiência VIP</span>
-        <h3>Plano VIP</h3>
-        <div class="preco"><small>R$</small>329,90</div>
-        <div class="per">por mês</div>
-        <ul>
-          <li><svg class="ico"><use href="#i-check"/></svg>Tudo ilimitado</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Atendimento preferencial</li>
-          <li><svg class="ico"><use href="#i-check"/></svg>Benefícios exclusivos</li>
-        </ul>
-        <a class="btn ghost" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener">Assinar</a>
-      </div>
-    </div>
-    <p class="planos-note">Todos os planos são ilimitados, exceto o Plano One. Consulte condições na unidade.</p>
-
-    <!-- Preços avulsos — CONFIRMAR valores com o cliente -->
-    <div class="precos-wrap" style="margin-top:90px">
-      <div class="sec-head center reveal" style="margin-bottom:44px">
-        <span class="eyebrow">Sem assinatura?</span>
-        <h2 style="font-size:clamp(26px,3.4vw,38px)">Serviços <span class="hl">avulsos</span></h2>
-      </div>
-      <div class="reveal">
-        <div class="preco-row"><h4>Corte de cabelo<small>Tesoura ou máquina, com finalização</small></h4><span class="dots"></span><span class="val">R$ 45</span></div>
-        <div class="preco-row"><h4>Barba completa<small>Navalha, toalha quente e produtos</small></h4><span class="dots"></span><span class="val">R$ 40</span></div>
-        <div class="preco-row"><h4>Corte + Barba<small>O combo completo</small></h4><span class="dots"></span><span class="val">R$ 75</span></div>
-        <div class="preco-row"><h4>Corte infantil<small>Até 12 anos</small></h4><span class="dots"></span><span class="val">R$ 40</span></div>
-        <div class="preco-row"><h4>Sobrancelha<small>Alinhamento na navalha</small></h4><span class="dots"></span><span class="val">R$ 15</span></div>
-      </div>
-      <p class="planos-note">Valores de referência. Confirme na unidade ou pelo WhatsApp.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Equipe -->
-<section id="equipe">
-  <div class="container">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">Nossa equipe</span>
-      <h2>Profissionais de <span class="hl">mão cheia</span></h2>
-      <p>Cada barbeiro da casa domina o ofício. Escolha o seu na hora de agendar.</p>
-    </div>
-    <!-- TROCAR: substituir fotos e nomes pelos barbeiros reais do cliente -->
-    <div class="team-grid">
-      <div class="team-card reveal">
-        <div class="tphoto"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=75&w=800&auto=format&fit=crop" alt="Barbeiro Rodrigo" loading="lazy" onerror="this.closest('.team-card').style.display='none'"></div>
-        <div class="team-body">
-          <h3>Rodrigo</h3>
-          <span>Barbeiro · Especialista em degradê</span>
-          <p>"Profissional de mão cheia", segundo os próprios clientes. Precisão na régua e atendimento nota 10.</p>
-        </div>
-      </div>
-      <div class="team-card reveal d1">
-        <div class="tphoto"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=75&w=800&auto=format&fit=crop" alt="Barbeiro da equipe Santiago" loading="lazy" onerror="this.closest('.team-card').style.display='none'"></div>
-        <div class="team-body">
-          <h3>Equipe Santiago</h3>
-          <span>Barbeiro · Barba e navalha</span>
-          <p>Especialista no ritual completo da barba: navalha, toalha quente e acabamento fino.</p>
-        </div>
-      </div>
-      <div class="team-card reveal d2">
-        <div class="tphoto"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=75&w=800&auto=format&fit=crop" alt="Barbeiro da equipe Santiago" loading="lazy" onerror="this.closest('.team-card').style.display='none'"></div>
-        <div class="team-body">
-          <h3>Equipe Santiago</h3>
-          <span>Barbeiro · Cortes clássicos e modernos</span>
-          <p>Do social ao freestyle. Técnica apurada para entregar exatamente o corte que você pediu.</p>
-        </div>
-      </div>
-    </div>
-    <div class="gal-cta reveal">
-      <a class="btn" href="https://www.cashbarber.com.br/bigoderiasantiago/inicio" target="_blank" rel="noopener"><svg class="ico"><use href="#i-cal"/></svg>Agendar com a equipe</a>
-    </div>
-  </div>
-</section>
-
 <!-- Depoimentos -->
-<section id="depoimentos" style="padding-top:0">
+<section id="depoimentos">
   <div class="container">
     <div class="sec-head center reveal">
       <span class="eyebrow">Quem conhece, recomenda</span>
@@ -733,6 +634,7 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
         <div class="who"><div class="av">G</div><div><b>Avaliação verificada</b><span>Google</span></div></div>
       </div>
     </div>
+    <div class="swipe-hint"><svg class="ico"><use href="#i-arrow"/></svg>Arraste para o lado</div>
   </div>
 </section>
 
@@ -779,7 +681,7 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
     <div class="locais-grid">
       <div class="local reveal left">
         <div class="photo">
-          <img src="fachada-santarita.jpg" alt="Bigoderia Santiago — Unidade Santa Rita">
+          <img src="fachada-santarita.jpg" alt="Bigoderia Santiago — Unidade Santa Rita" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=75&w=1200&auto=format&fit=crop'">
           <span class="unit">Unidade Santa Rita</span>
         </div>
         <div class="local-body">
@@ -795,7 +697,7 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
       </div>
       <div class="local reveal right">
         <div class="photo">
-          <img src="fachada-centro.jpg" alt="Bigoderia Santiago — Unidade Centro">
+          <img src="fachada-centro.jpg" alt="Bigoderia Santiago — Unidade Centro" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=75&w=1200&auto=format&fit=crop'">
           <span class="unit">Unidade Centro</span>
         </div>
         <div class="local-body">
@@ -816,7 +718,7 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
 <!-- CTA final -->
 <section class="cta-final bg-photo" id="contato">
   <div class="container reveal zoom">
-    <div class="seal"><img src="logo.png" alt=""></div>
+    <div class="seal"><img src="logo.png" alt="" onerror="this.parentElement.style.display='none'"></div>
     <h2>Bora dar um trato<br>nesse <span class="hl">visual?</span></h2>
     <p>Agende online em menos de um minuto. Escolha o barbeiro, o horário e a unidade — a gente cuida do resto.</p>
     <div class="hero-ctas">
@@ -835,7 +737,7 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
     <div class="foot-grid">
       <div>
         <a href="#" class="logo">
-          <img src="logo.png" alt="Logo Bigoderia Santiago">
+          <img src="logo.png" alt="Logo Bigoderia Santiago" onerror="this.style.display='none'">
           <span class="lt">Santiago<small>Bigoderia</small></span>
         </a>
         <p>A primeira barbearia com assinatura do Sul de Minas. Mais de 8 anos entregando confiança, estilo e respeito à sua agenda em Pouso Alegre/MG.</p>
@@ -845,7 +747,6 @@ body.intro .hero-card{animation:cardIn 1.4s cubic-bezier(.22,.61,.36,1) both .3s
         <ul>
           <li><a href="#sobre">Sobre nós</a></li>
           <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#planos">Planos de assinatura</a></li>
           <li><a href="#locais">Unidades</a></li>
         </ul>
       </div>
@@ -906,8 +807,8 @@ links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.class
 
 // Reveal on scroll
 const io=new IntersectionObserver(es=>es.forEach(e=>{
-  if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}
-}),{threshold:.15});
+  e.target.classList.toggle('visible',e.isIntersecting)
+}),{threshold:.12,rootMargin:'0px 0px -4% 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 // Counters
